@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: royal-pomodoro
+    env: node
+    buildCommand: cd server && npm install
+    startCommand: cd server && node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+    healthCheckPath: /api/health
+    autoDeploy: true
+    branch: main
